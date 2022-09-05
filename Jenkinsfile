@@ -8,5 +8,12 @@ pipeline {
               archive 'target/*.jar'//test 
             }
         }   
+
+        stage('Build Artifact') {
+            steps {
+              sh "mvn test"
+              
+            }
+        }   
     }
 }
