@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build Artifact') {
             steps {
-              sh "mvn test"
+              sh "mvn test" //test
               
             }
         }   
