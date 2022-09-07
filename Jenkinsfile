@@ -28,6 +28,8 @@ pipeline {
           sh 'docker push tejaspathak01/numeric-app:""$GIT_COMMIT""'
 
 
+          }
+        }
+      }
     }
-  }
-
+}    
