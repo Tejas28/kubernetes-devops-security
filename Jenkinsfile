@@ -35,11 +35,11 @@ pipeline {
         stage('Sonarqube-SAST')
         {
           steps{
-          withSonarQubeEnv('SonarQube'){
-            sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://35.223.254.7:9000"
+               withSonarQubeEnv('SonarQube'){
+                  sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://35.223.254.7:9000"
           }
 
-          timeout(time: 1, unit: 'MINUTES') {
+          timeout(time: 2, unit: 'MINUTES') {
             script{
                waitForQualityGate abortPipeline: true
             }
