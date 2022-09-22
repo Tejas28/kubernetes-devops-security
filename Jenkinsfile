@@ -39,7 +39,7 @@ pipeline {
             sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://35.223.254.7:9000"
           }
 
-          timeout(time: 2, unit: 'MINUTES') {
+          timeout(time: 1, unit: 'MINUTES') {
             script{
                waitForQualityGate abortPipeline: true
             }
