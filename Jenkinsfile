@@ -37,11 +37,12 @@ pipeline {
           steps{
                withSonarQubeEnv('SonarQube'){
                   sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://35.223.254.7:9000"
+                  waitForQualityGate(webhookSecretId: '5e1a7039c903d05563078d35863f75f551f069ad') 
           }
 
           timeout(time: 2, unit: 'MINUTES') {
             script{
-               waitForQualityGate(webhookSecretId: '5e1a7039c903d05563078d35863f75f551f069ad') 
+               
                waitForQualityGate abortPipeline: true
             }
                     
