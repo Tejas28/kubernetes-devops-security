@@ -41,7 +41,7 @@ pipeline {
 
           timeout(time: 2, unit: 'MINUTES') {
             script{
-               waitForQualityGate(webhookSecretId: '5e1a7039c903d05563078d35863f75f551f069ad') abortPipeline: true
+               waitForQualityGate(webhookSecretId: '5e1a7039c903d05563078d35863f75f551f069ad') abortPipeline: true //
             }
                     
            }           
