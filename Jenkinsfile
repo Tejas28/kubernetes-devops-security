@@ -35,18 +35,14 @@ pipeline {
         stage('Sonarqube-SAST')
         {
           steps{
-               withSonarQubeEnv('SonarQube'){
-                  sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://35.223.254.7:9000"
-                  
+               withSonarQubeEnv('SonarQube_2'){
+              sh" mvn sonar:sonar \
+              -Dsonar.projectKey=numeric_application_2 \
+              -Dsonar.host.url=http://35.223.254.7:9000 \
+              -Dsonar.login=d8b2c9de313b7b8676b72431d588b822d8c617c2"
           }
 
-          timeout(time: 2, unit: 'MINUTES') {
-            script{
-               
-               waitForQualityGate abortPipeline: true
-            }
                     
-           }           
           } 
        
         }
